@@ -1,0 +1,27 @@
+ <!DOCTYPE html>
+<html>
+<head>
+    <title>Mi Página con Imagen y Cámara</title>
+</head>
+<body>
+    <h1>¡Bienvenido a Mi Página!</h1>
+    <p>Wow que meme mas bonito:</p>
+    <img src="mi-foto.jpg" alt="Descripción de la imagen" width="300">
+
+    <h2>Un idiota</h2>
+    <video id="video" width="640" height="480" autoplay></video>
+
+    <script>
+        // Accede al video
+        var video = document.querySelector("#video");
+
+        // Pide permiso para acceder a la cámara
+        if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+            navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
+                video.srcObject = stream;
+                video.play();
+            });
+        }
+    </script>
+</body>
+</html>
